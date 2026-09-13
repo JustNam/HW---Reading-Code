@@ -32,6 +32,8 @@ Before diving into state, sketch what one item of `researchQuestion` looks like:
 
 `05.handleDeletteInterviewQ`
 
+<!-- Thiếu 1 handler nhen chị: handleEditInterviewQ cũng gọi setResearchQuestion để update nội dung interview question ạ -->
+
 - Why is it nested (an array of objects, one of which contains another array)? What does that let this UI do?
 `Rearch plan bao gồm nhiều researchQuestion, và trong mỗi researchQuestion lại có nhiều interviewQs`
 
@@ -59,6 +61,8 @@ For each handler: what triggers it, what it does, and what it returns/sets.
 
 - Why `[...researchQuestion, newQuestion]` instead of `researchQuestion.push(newQuestion)`? 
 `[...researchQuestion, newQuestion] sẽ set lại state của newList còn researchQuestion.push(newQuestion) sẽ không set lại state của newList -> JavaScript không nhận ra state newList được cập nhật`
+
+<!-- Chỗ này chị ghi hơi lệch xíu, không phải "JavaScript không nhận ra", mà là React so sánh reference (địa chỉ) của array cũ với array mới để quyết định có re-render không. push() sửa trực tiếp researchQuestion cũ nên reference không đổi -> React nghĩ là "chưa có gì thay đổi". Spread [...] tạo hẳn array mới (reference mới) nên React mới nhận ra và re-render -->
 
 *AI assistant is allowed, please write your answer manually*
 
